@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+//COLORS
+$dark__main: #121212;
+$light__main: #f1f1f1;
+$cyan: #5bc0de;
+$grey: #6e6e6e;
+//--------------------------
+//GENERAL
+a {
+  text-decoration: none;
+}
+
+.flex__center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+//MAIN
+body {
+  height: 100%;
+  position: relative;
+  font-family: "Nunito", sans-serif;
+  background-color: $dark__main;
+  color: $light__main;
+}
+
+.App {
+  min-height: calc(100vh - 70px);
+}
+
+.wrapper {
+  padding: 10px;
+}
+
+//NAVBAR
+.navbar {
+  height: 90px;
+}
+
+//SEARCH
+.search {
+  input {
+    width: 100%;
+    max-width: 600px;
+  }
+}
+
+//HOME
+
+.Home {
+  max-width: 1400px;
+}
+
+//CAHRACTER CARDS
+
+.cards__wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.character__card {
+  border: 1px solid $cyan;
+  border-radius: 5px;
+  max-width: 330px;
+  margin: 0 0 20px 20px;
+
+  .character__card__image {
+    img {
+      border-radius: 5px;
+    }
+    .status {
+      text-transform: lowercase;
+      top: 10px;
+      right: 10px;
+    }
+  }
+
+  .character__card__details {
+    .details__item {
+      border-radius: 5px;
+      background-color: $dark__main;
+      margin-top: 5px;
+    }
+  }
+}
+
+.character__card__expanded__wrapper {
+  max-width: 320px;
+
+  .character__card__expanded {
+    width: 100%;
+  }
+
+  .homepage__link {
+    width: 100%;
+  }
+}
+
+//FILTERS
+.filters {
+  height: fit-content;
+  margin-right: 20px;
+  padding: 20px;
+
+  .clear__filters {
+    width: 100%;
+  }
+}
+
+.filter__item__input:checked + label {
+  background-color: #5bc0de;
+  color: $light__main;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  margin-top: 1.5rem;
+}
+
+.accordion-item {
+  margin-top: 1.5rem;
+  border-radius: 5px;
+}
+
+.filters,
+.accordion-button,
+.accordion-body {
+  border-radius: 5px;
+}
+
+.accordion-body {
+  padding: 0 !important;
+  padding-bottom: 1.5rem !important;
+}
+
+//BOOTSTRAP DEFAULT VALUES CHANGE
+.accordion-button:not(.collapsed) {
+  color: $dark__main;
+  background-color: $light__main;
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  z-index: 3;
+  border-color: none;
+  outline: 0;
+  box-shadow: none;
+}
+
+//FOOTER
+.footer {
+  height: 70px;
+}

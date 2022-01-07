@@ -166,5 +166,9 @@ label {
 
 //FOOTER
 .footer {
-  height: 70px;
+  min-height: 120px;
+
+  p {
+    max-width: 70%;
+  }
 }

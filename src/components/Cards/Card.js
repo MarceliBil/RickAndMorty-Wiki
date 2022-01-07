@@ -28,21 +28,23 @@ const Card = ({ results }) => {
             }
 
             return (
-                <Link to={`${id}`}
-                    key={id} className=" p-3 bg-dark character__card " style={{ maxWidth: "230px" }}>
+                <div key={id} className="col-sm-6 col-lg-4 col-xl-3 col-xx-4 character__card m-x-auto">
+                    <Link to={`${id}`}
+                        className="p-3 bg-dark character__link">
 
-                    <div className="character__card__image position-relative">
-                        <img src={image} alt="thumbnail" className='img-fluid' />
-                        <p className={`position-absolute px-3 py-1 text-light ${status__color} status`}>{status}</p>
-                    </div>
+                        <div className="character__card__image position-relative">
+                            <img src={image} alt="thumbnail" className='img-fluid' />
+                            <p className={`position-absolute px-3 py-1 text-light ${status__color} status`}>{status}</p>
+                        </div>
 
-                    <div className="character__card__details">
-                        <h4 className='fs-4 fw-bold py-3 name m-0 text-light'>{name}</h4>
-                        <p className='last__location mt-3 text-info'>Last location:</p>
-                        <p className='mt-1 text-light'>{location.name}</p>
-                    </div>
+                        <div className="character__card__details">
+                            <h4 className='fs-4 fw-bold py-3 name m-0 text-light'>{name}</h4>
+                            <p className='last__location mt-3 text-info'>Last location:</p>
+                            <p className='mt-1 text-light'>{location.name}</p>
+                        </div>
 
-                </Link>
+                    </Link>
+                </div>
             )
         })
     }

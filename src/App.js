@@ -63,14 +63,22 @@ const Home = () => {
         <title>Rickipedia | {TITLE}</title>
       </Helmet>
       <Search setSearch={setSearch} setPageNumber={setPageNumber} />
-      <div className="d-flex">
-        <Filters setStatus={setStatus} setGender={setGender} setSpecies={setSpecies} setPageNumber={setPageNumber} />
 
-        <div className="row cards__wrapper">
-          <Card results={results} />
+
+      <div className="container">
+
+        <div className="row justify-content-center">
+          <Filters setStatus={setStatus} setGender={setGender} setSpecies={setSpecies} setPageNumber={setPageNumber} />
+
+          <div className="row gx-3 col-xxl-9 cards__wrapper">
+            <Card results={results} />
+          </div>
         </div>
-
       </div>
+
+
+
+
       <Pagination info={info} pageNumber={pageNumber} setPageNumber={setPageNumber} />
     </div>
   )

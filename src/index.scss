@@ -25,6 +25,7 @@ a {
 }
 
 //MAIN
+
 body {
   height: 100%;
   position: relative;
@@ -37,10 +38,6 @@ body {
   min-height: calc(100vh - 70px);
 }
 
-.wrapper {
-  padding: 10px;
-}
-
 //NAVBAR
 .navbar {
   height: 90px;
@@ -48,6 +45,7 @@ body {
 
 //SEARCH
 .search {
+  margin: 1rem;
   input {
     width: 100%;
     max-width: 600px;
@@ -57,22 +55,20 @@ body {
 //HOME
 
 .Home {
-  max-width: 1400px;
+  width: 100%;
 }
 
 //CAHRACTER CARDS
 
-.cards__wrapper {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.character__card {
+.character__link {
+  display: block !important;
+  height: 100%;
   border: 1px solid $cyan;
   border-radius: 5px;
   max-width: 330px;
-  margin: 0 0 20px 20px;
-
+}
+.character__card {
+  margin-bottom: 1.25rem;
   .character__card__image {
     img {
       border-radius: 5px;
@@ -93,22 +89,26 @@ body {
   }
 }
 
-.character__card__expanded__wrapper {
-  max-width: 320px;
-
-  .character__card__expanded {
-    width: 100%;
+@media screen and (max-width: 576px) {
+  .character__link {
+    margin: auto;
   }
+}
 
+.character__card__expanded__wrapper {
+  .character__card__expanded,
   .homepage__link {
     width: 100%;
+  }
+  .character__card__expanded {
+    border: 1px solid $cyan;
+    border-radius: 5px;
+    max-width: 330px;
   }
 }
 
 //FILTERS
 .filters {
-  height: fit-content;
-  margin-right: 20px;
   padding: 20px;
 
   .clear__filters {
@@ -157,6 +157,11 @@ label {
   border-color: none;
   outline: 0;
   box-shadow: none;
+}
+
+//PAGINATION{
+.pagination {
+  flex-wrap: wrap;
 }
 
 //FOOTER

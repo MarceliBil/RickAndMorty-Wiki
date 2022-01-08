@@ -58,6 +58,10 @@ body {
   width: 100%;
 }
 
+.wrapper {
+  min-height: calc(100vh - 200px);
+}
+
 //CAHRACTER CARDS
 
 .character__link {

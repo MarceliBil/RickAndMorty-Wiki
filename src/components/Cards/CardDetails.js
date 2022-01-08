@@ -1,21 +1,26 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet'
 import { Link } from "react-router-dom"
+import { usePromiseTracker, trackPromise } from "react-promise-tracker"
 
 import NotFound from '../../pages/NotFound';
 
 const CardDetails = () => {
 
     let { id } = useParams();
-    let [fetchedData, updateFetchedData] = useState([]);
+    let [fetchedData, updateFetchedData] = useState([])
+    const { promiseInProgress } = usePromiseTracker()
     let { name, status, species, gender, origin, location, image } = fetchedData;
 
     let api = `https://rickandmortyapi.com/api/character/${id}`;
 
+
+
+
     useEffect(() => {
-        (async function () {
+        (async () => {
             let data = await fetch(api).then(res => res.json());
             updateFetchedData(data);
         })()
@@ -41,12 +46,9 @@ const CardDetails = () => {
     }
 
 
-    let display;
-
-    if (name) {
-        return (
+    return (
+        <>
             <>
-
                 <Helmet>
                     <title>Rickipedia | {name ? name : ""}</title>
                 </Helmet>
@@ -83,16 +85,6 @@ const CardDetails = () => {
                     <Link to={"/"} className='btn btn-outline-info homepage__link mt-4'>Back to the home page</Link>
                 </div>
             </>
-        )
-    }
-    else {
-        display = <NotFound />
-    }
-
-    return (
-        <>
-            {display}
-
         </>
     )
 }

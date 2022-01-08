@@ -19,20 +19,24 @@ const Home = () => {
     let [species, setSpecies] = useState("");
 
     let [fetchedData, updateFetchedData] = useState([]);
+    let [loading, setLoading] = useState(false);
 
     let { info, results } = fetchedData;
 
     let api = `https://rickandmortyapi.com/api/character?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
 
     useEffect(() => {
+
         (async () => {
+            setLoading(true)
             let data = await fetch(api)
                 .then(res => res.json())
             updateFetchedData(data)
-
+            setLoading(false)
         })()
 
     }, [api]);
+
 
     return (
 
@@ -44,11 +48,17 @@ const Home = () => {
 
             <div className="container">
 
+
+
+
                 <div className="row justify-content-center">
                     <Filters setStatus={setStatus} setGender={setGender} setSpecies={setSpecies} setPageNumber={setPageNumber} />
 
                     <div className="row gx-3 col-xxl-9 cards__wrapper">
-                        <Card results={results} />
+                        {
+                            loading ? <h2>Loading...</h2> : <Card results={results} />
+                        }
+
                     </div>
                 </div>
             </div>

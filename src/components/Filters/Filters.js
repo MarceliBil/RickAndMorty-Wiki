@@ -1,11 +1,21 @@
 import React from 'react'
 
+import { useState } from 'react'
+
 import Gender from "../Filters/Category/Gender"
 import Species from "../Filters/Category/Species"
 import Status from "../Filters/Category/Status"
 
-
 const Filters = ({ setStatus, setGender, setSpecies, setPageNumber }) => {
+
+    //SHOW / HIDE FILTERS
+    let [showFilters, setShowFilters] = useState(false)
+    let [btnText, setBtnText] = useState(false)
+
+    const showHide = () => {
+        setShowFilters(!showFilters)
+        setBtnText(!btnText)
+    }
 
     let clearFilters = () => {
         window.location.reload(false)
@@ -13,7 +23,10 @@ const Filters = ({ setStatus, setGender, setSpecies, setPageNumber }) => {
 
     return (
         <div className="col-xxl-3 mb-5 ">
-            <div className='bg-dark filters'>
+
+            <button className={`btn btn-info mx-2 show__filter__btn`} onClick={showHide}>{btnText ? "Hide filters" : "Show filters"}</button>
+
+            <div className={`bg-dark filters ${showFilters ? "show" : "hide"}`}>
                 <h3 className='text-center m-0'>Filters</h3>
 
                 <div className="accordion" id="accordionExample">

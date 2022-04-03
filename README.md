@@ -1,4 +1,4 @@
-Rick and Morty Wiki
+# Rick and Morty Wiki
 
 ![Zrzut ekranu (300)](https://user-images.githubusercontent.com/54410894/148255763-d7f957e2-15a9-4df3-9dde-e6a34c4958ef.png)
 

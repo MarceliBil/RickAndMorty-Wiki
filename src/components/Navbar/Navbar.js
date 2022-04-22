@@ -7,7 +7,6 @@ const Navbar = () => {
             <Link to="/" >
                 <h1 className='text-center text-light bg-dark m-0 p-0'>The Rick and Morty  <span className='text-info'>Wiki</span> </h1>
             </Link>
-
         </header>
     )
 }

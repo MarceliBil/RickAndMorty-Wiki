@@ -17,7 +17,7 @@ const Filters = ({ setStatus, setGender, setSpecies, setPageNumber }) => {
         setBtnText(!btnText)
     }
 
-    let clearFilters = () => {
+    const clearFilters = () => {
         window.location.reload(false)
     }
 

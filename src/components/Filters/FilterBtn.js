@@ -2,7 +2,7 @@ import React from 'react'
 
 const FilterBtn = ({ items, index, name, task, setPageNumber }) => {
 
-    let filterItems = () => {
+    const filterItems = () => {
         setPageNumber(1);
         task(items)
     }

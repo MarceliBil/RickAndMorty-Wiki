@@ -12,21 +12,20 @@ const TITLE = 'Home';
 
 const Home = () => {
 
-    let [pageNumber, setPageNumber] = useState(1);
-    let [search, setSearch] = useState("");
-    let [status, setStatus] = useState("");
-    let [gender, setGender] = useState("");
-    let [species, setSpecies] = useState("");
+    const [pageNumber, setPageNumber] = useState(1);
+    const [search, setSearch] = useState("");
+    const [status, setStatus] = useState("");
+    const [gender, setGender] = useState("");
+    const [species, setSpecies] = useState("");
 
-    let [fetchedData, updateFetchedData] = useState([]);
-    let [loading, setLoading] = useState(false);
+    const [fetchedData, updateFetchedData] = useState([]);
+    const [loading, setLoading] = useState(false);
 
-    let { info, results } = fetchedData;
+    const { info, results } = fetchedData;
 
-    let api = `https://rickandmortyapi.com/api/character?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
+    const api = `https://rickandmortyapi.com/api/character?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
 
     useEffect(() => {
-
         (async () => {
             setLoading(true)
             let data = await fetch(api)
@@ -34,12 +33,9 @@ const Home = () => {
             updateFetchedData(data)
             setLoading(false)
         })()
-
     }, [api]);
 
-
     return (
-
         <div className='Home'>
             <Helmet>
                 <title>Rickipedia | {TITLE}</title>
@@ -47,10 +43,6 @@ const Home = () => {
             <Search setSearch={setSearch} setPageNumber={setPageNumber} />
 
             <div className="container">
-
-
-
-
                 <div className="row justify-content-center">
                     <Filters setStatus={setStatus} setGender={setGender} setSpecies={setSpecies} setPageNumber={setPageNumber} />
 
@@ -65,7 +57,6 @@ const Home = () => {
 
             <Pagination info={info} pageNumber={pageNumber} setPageNumber={setPageNumber} />
         </div>
-
     )
 }
 

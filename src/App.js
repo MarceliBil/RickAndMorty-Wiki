@@ -4,12 +4,9 @@ import CardDetails from "./components/Cards/CardDetails"
 import Footer from './components/Footer/Footer'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
 import './index.scss';
-
-
 
 function App() {
   return (
@@ -32,6 +29,5 @@ function App() {
 
   )
 }
-
 
 export default App;

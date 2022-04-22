@@ -5,14 +5,12 @@ import { Helmet } from 'react-helmet'
 import { Link } from "react-router-dom"
 
 const CardDetails = () => {
+    const { id } = useParams();
+    const [fetchedData, updateFetchedData] = useState([])
+    const [loading, setLoading] = useState(false)
+    const { name, status, species, gender, origin, location, image } = fetchedData;
 
-    let { id } = useParams();
-    let [fetchedData, updateFetchedData] = useState([])
-    let [loading, setLoading] = useState(false)
-    let { name, status, species, gender, origin, location, image } = fetchedData;
-
-    let api = `https://rickandmortyapi.com/api/character/${id}`;
-
+    const api = `https://rickandmortyapi.com/api/character/${id}`;
 
     useEffect(() => {
         (async () => {
@@ -22,7 +20,6 @@ const CardDetails = () => {
             setLoading(false)
         })()
     }, [api]);
-
 
     let status__color;
 
@@ -41,7 +38,7 @@ const CardDetails = () => {
             break;
     }
 
-    let display = () => {
+    const display = () => {
         return (
             <div className='my-4 character__card__expanded__wrapper'>
                 <div className="col-3 p-3 m-0 character__card character__card__expanded bg-dark">
@@ -79,7 +76,6 @@ const CardDetails = () => {
     }
 
     return (
-
         <>
             <Helmet>
                 <title>Rickipedia | {name ? name : ""}</title>
@@ -87,7 +83,6 @@ const CardDetails = () => {
             {
                 loading ? <h2>Loading...</h2> : display()
             }
-
         </>
 
     )

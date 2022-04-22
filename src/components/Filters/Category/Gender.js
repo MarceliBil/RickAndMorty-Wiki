@@ -3,7 +3,7 @@ import FilterBtn from '../FilterBtn'
 
 const Gender = ({ setGender, setPageNumber }) => {
 
-    let gender = ['Female', 'Male', 'Genderless', 'unknown'];
+    const gender = ['Female', 'Male', 'Genderless', 'unknown'];
 
     return (
 

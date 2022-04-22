@@ -6,9 +6,8 @@ const Card = ({ results }) => {
     let display;
 
     if (results) {
-
         display = results.map(x => {
-            let { id, status, name, image, location } = x;
+            const { id, status, name, image, location } = x;
 
             let status__color;
 
@@ -55,7 +54,6 @@ const Card = ({ results }) => {
         <>
             {display}
         </>
-
     )
 }
 
